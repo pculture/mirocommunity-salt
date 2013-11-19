@@ -1,6 +1,10 @@
+python-pip:
+  pkg.installed
+
 circus:
   pip.installed:
-    - name: circus
+    - require:
+      - pkg: python-pip
 
 circus_upstart:
   file.managed:
