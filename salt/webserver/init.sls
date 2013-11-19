@@ -9,7 +9,6 @@ app-pkgs:
       - git
       - python-virtualenv
       - python-dev
-      - libpq-dev
       - libjpeg-dev
 
 webproject_user:

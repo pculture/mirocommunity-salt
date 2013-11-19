@@ -1,9 +1,9 @@
 mysql-pkgs:
   pkg.installed:
     - names:
-      - mysql
-      - MySQL-python
-      - mysql-devel
+      - mysql-client
+      - python-mysqldb
+      - libmysqlclient-dev
       - mysql-server
 
 mysql-conf:
