@@ -18,11 +18,10 @@ How to use
 
 3. Customize the salt setup. You'll need to set the following values in ``/srv/pillar/settings.sls``:
 
-	* ``settings: db: password:`` - currently set to PASSWORD. Should be a unique password.
-	* ``settings: secret_key:`` - currently set to SECRET_KEY. Should be a unique secret key.
-	* ``settings: server_name:`` - currently set to MYSITE.COM. Should be a space-separated list of domain names that may point at your server.
-		.. seealso:: http://nginx.org/en/docs/http/server_names.html
-	* Any API keys you want to use - for example, for social media authentication.
+  * ``settings: db: password:`` - currently set to PASSWORD. Should be a unique password.
+  * ``settings: secret_key:`` - currently set to SECRET_KEY. Should be a unique secret key.
+  * ``settings: server_name:`` - currently set to MYSITE.COM. Should be a space-separated list of domain names that may point at your server. See also: `Nginx server_name documentation <http://nginx.org/en/docs/http/server_names.html>`_.
+  * Any API keys you want to use - for example, for social media authentication.
 
 4. Run salt.
 
