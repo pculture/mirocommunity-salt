@@ -12,13 +12,6 @@ settings:
     password: "PASSWORD"
     host: ""
     port: ""
-  haystack:
-    engine: haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine
-    url: http://127.0.0.1:9200/
-    index_name: haystack
-  cache:
-    backend: django.core.cache.backends.memcached.MemcachedCache
-    location: 127.0.0.1:11211
   apis:
     facebook:
       app_id: ""
@@ -40,5 +33,12 @@ settings:
     recaptcha:
       public_key: ""
       private_key: ""
+  haystack:
+    engine: haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine
+    url: http://127.0.0.1:9200/
+    index_name: haystack
+  cache:
+    backend: django.core.cache.backends.memcached.MemcachedCache
+    location: 127.0.0.1:11211
   debug: False
   time_zone: UTC
