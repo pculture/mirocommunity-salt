@@ -11,7 +11,7 @@ mysql-conf:
     - name: /etc/my.cnf
     - source: salt://database/my.cnf
 
-mysqld:
+mysql:
   service:
     - running
     - require:
@@ -23,7 +23,7 @@ clear_defaults:
   mysql_database.absent:
     - name: test
     - require:
-      - service: mysqld
+      - service: mysql
 
 webproject_db:
   mysql_grants.present:
@@ -38,10 +38,10 @@ webproject_db:
   mysql_database.present:
     - name: webproject
     - require:
-      - service: mysqld
+      - service: mysql
   mysql_user.present:
     - name: webproject
     - hostname: localhost
     - password: {{ pillar['settings']['db']['password'] }}
     - require:
-      - service: mysqld
+      - service: mysql
