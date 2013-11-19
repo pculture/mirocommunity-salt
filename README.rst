@@ -14,7 +14,7 @@ How to use
 .. code:: console
 
 	cd /
-	sudo git clone git://path_to_repo.git srv/
+	sudo git clone https://github.com/pculture/mirocommunity-salt.git srv/
 
 3. Customize the salt setup. You'll need to set the following values in ``/srv/pillar/settings.sls``:
 
