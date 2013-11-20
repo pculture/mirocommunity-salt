@@ -1,6 +1,5 @@
 include:
   - circus
-  - deploy
   - database
 
 app-pkgs:
