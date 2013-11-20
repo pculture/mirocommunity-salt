@@ -6,6 +6,7 @@ python-pip:
     - cwd: /
     - name: easy_install --script-dir=/usr/bin -U pip
     - reload_modules: true
+    - unless: hash pip 2>/dev/null
     - require:
       - pkg: python-pip
 
