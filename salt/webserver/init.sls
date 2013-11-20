@@ -5,7 +5,7 @@ include:
 app-pkgs:
   pkg.installed:
     - names:
-      - git
+      - git-core
       - python-dev
       - libjpeg-dev
 
