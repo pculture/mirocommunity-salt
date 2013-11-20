@@ -49,6 +49,8 @@ nginx:
     - latest
   service:
     - running
+    - require:
+      - pkg: nginx
 
 nginx_default_site:
   file.absent:
@@ -56,6 +58,14 @@ nginx_default_site:
       - /etc/nginx/sites-enabled/default
       - /etc/nginx/sites-available/default
     - watch_in:
+      - service: nginx
+
+/etc/nginx/conf.d:
+  file.directory:
+    - clean: true
+    - require:
+      - pkg: nginx
+    - require_in:
       - service: nginx
 
 gunicorn_log:
@@ -74,6 +84,8 @@ webproject_nginxconf:
     - mode: 755
     - watch_in:
       - service: nginx
+    - require:
+      - pkg: nginx
 
 webproject_project:
   file.recurse:
