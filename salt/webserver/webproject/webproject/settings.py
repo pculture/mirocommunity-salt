@@ -71,7 +71,7 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': '{{ pillar["settings"]["haystack"]["engine"] }}',
         'URL': '{{ pillar["settings"]["haystack"]["url"] }}',
-        'INDEX_NAME': '{{ pillar["settings"]["db"]["index_name"] }}',
+        'INDEX_NAME': '{{ pillar["settings"]["haystack"]["index_name"] }}',
     }
 }
 
