@@ -7,7 +7,7 @@ app-pkgs:
     - names:
       - git-core
       - python-dev
-      - libjpeg-dev
+      - libjpeg62
 
 virtualenv:
   pkg.purged:
