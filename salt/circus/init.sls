@@ -1,10 +1,18 @@
 python-pip:
-  pkg.installed
+  pkg.purged:
+    - name: python-pip
+  cmd:
+    - run
+    - cwd: /
+    - name: easy_install --script-dir=/usr/bin -U pip
+    - reload_modules: true
+    - require:
+      - pkg: python-pip
 
 circus:
   pip.installed:
     - require:
-      - pkg: python-pip
+      - cmd: python-pip
 
 circus_upstart:
   file.managed:
