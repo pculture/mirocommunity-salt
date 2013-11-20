@@ -50,6 +50,14 @@ nginx:
   service:
     - running
 
+nginx_default_site:
+  file.absent:
+    - names:
+      - /etc/nginx/sites-enabled/default
+      - /etc/nginx/sites-available/default
+    - watch_in:
+      - service: nginx
+
 gunicorn_log:
   file.managed:
     - name: {{ pillar['files']['gunicorn_log'] }}
