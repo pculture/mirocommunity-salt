@@ -23,6 +23,8 @@ circus_conf:
   file.managed:
     - name: /etc/circus.ini
     - source: salt://circus/circus.ini
+    - require:
+      - pip: circus
 
 circus_dir:
   file.directory:
@@ -34,3 +36,4 @@ circusd:
     - require:
       - file: circus_upstart
       - file: circus_dir
+      - file: circus_conf

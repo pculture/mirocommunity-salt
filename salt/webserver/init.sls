@@ -6,9 +6,16 @@ app-pkgs:
   pkg.installed:
     - names:
       - git
-      - python-virtualenv
       - python-dev
       - libjpeg-dev
+
+virtualenv:
+  pkg.purged:
+    - name: python-virtualenv
+  pip.installed:
+    - upgrade: true
+    - require:
+      - cmd: python-pip
 
 webproject_user:
   user.present:
@@ -34,6 +41,7 @@ webproject_env:
     - clear: false
     - require:
       - pkg: app-pkgs
+      - pip: virtualenv
       - file: webproject_dirs
 
 nginx:
