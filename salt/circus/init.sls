@@ -1,14 +1,19 @@
+easy_install:
+  pkg.installed:
+    - name: python-setuptools
+
 python-pip:
   pkg.purged:
     - name: python-pip
   cmd:
     - run
     - cwd: /
-    - name: easy_install --script-dir=/usr/bin -U pip
+    - name: easy_install -U pip
     - reload_modules: true
     - unless: hash pip 2>/dev/null
     - require:
       - pkg: python-pip
+      - pkg: easy_install
 
 circus:
   pip.installed:
