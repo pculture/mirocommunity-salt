@@ -9,6 +9,7 @@ app-pkgs:
       - python-dev
       - libjpeg62
       - mercurial
+      - subversion
 
 virtualenv:
   pkg.purged:
