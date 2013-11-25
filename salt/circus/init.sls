@@ -15,11 +15,16 @@ python-pip:
       - pkg: python-pip
       - pkg: easy_install
 
+cpp_support:
+  pkg.installed:
+    - name: g++
+
 pyzmq:
   pip.installed:
     - name: pyzmq==13.1.0
     - require:
       - cmd: python-pip
+      - pkg: cpp_support
 
 circus:
   pip.installed:
