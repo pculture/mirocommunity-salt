@@ -8,6 +8,7 @@ app-pkgs:
       - git-core
       - python-dev
       - libjpeg62
+      - mercurial
 
 virtualenv:
   pkg.purged:
