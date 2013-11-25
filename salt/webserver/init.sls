@@ -37,7 +37,6 @@ webproject_env:
   virtualenv.manage:
     - name: {{ pillar['files']['env_dir'] }}
     - requirements: salt://webserver/requirements.txt
-    - no_site_packages: true
     - clear: false
     - require:
       - pkg: app-pkgs
