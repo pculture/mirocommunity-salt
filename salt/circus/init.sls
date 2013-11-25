@@ -15,10 +15,18 @@ python-pip:
       - pkg: python-pip
       - pkg: easy_install
 
-circus:
+pyzmq:
   pip.installed:
+    - name: pyzmq==13.1.0
     - require:
       - cmd: python-pip
+
+circus:
+  pip.installed:
+    - name: circus==0.10.0
+    - require:
+      - cmd: python-pip
+      - pip: pyzmq
 
 circus_upstart:
   file.managed:
