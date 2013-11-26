@@ -104,7 +104,7 @@ webproject_project:
 # when setting a server up.
 webproject_syncdb:
   cmd.wait:
-    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py syncdb
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py syncdb --noinput
     - cwd: {{ pillar['files']['webproject_dir'] }}
     - user: webproject
     - group: webproject
