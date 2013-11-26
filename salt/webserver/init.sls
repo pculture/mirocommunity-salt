@@ -17,7 +17,7 @@ virtualenv:
   pkg.purged:
     - name: python-virtualenv
   pip.installed:
-    - upgrade: true
+    - name: virtualenv==1.10.1
     - require:
       - cmd: python-pip
 
