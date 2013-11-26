@@ -123,7 +123,6 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'south',
     'djpagetabs',
-    'mirocommunity_saas',
     'localtv',
     'localtv.admin',
     'localtv.comments',
