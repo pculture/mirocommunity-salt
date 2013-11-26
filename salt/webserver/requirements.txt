@@ -11,8 +11,6 @@
 -e git+git://github.com/pculture/mirocommunity.git@1d2f6dea197f1f46d4c2f2a528f7e460d0f48432#egg=mirocommunity
 -e git+git://github.com/pculture/mirocommunity.org.git@7020e9e2c0dbbc1fa22a0acffcb257dd555715f2#egg=mirocommunity.org
 -e git+git://github.com/pculture/vidscraper.git@a3d1e3a36c32b7edc623e1cf8cdbdc58247b573a#egg=vidscraper
-# At a commit pending a release past 0.7.6
--e hg+http://bitbucket.org/andrewgodwin/south@1fd2473fc12869b6adeac3a81105f519d25d693e#egg=south
 
 # backwards-compatibility
 # Need this one because we haven't yet ported old social auth links.

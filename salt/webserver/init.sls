@@ -100,6 +100,18 @@ webproject_project:
     - require:
       - virtualenv: {{ pillar['files']['env_dir'] }}
 
+# This one is primarily so that people don't have to think about this
+# when setting a server up.
+webproject_syncdb:
+  cmd.wait:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py syncdb
+    - cwd: {{ pillar['files']['webproject_dir'] }}
+    - user: webproject
+    - group: webproject
+    - watch:
+      - file: webproject_project
+      - virtualenv: webproject_env
+
 webproject_gunicorn_circus:
   file.managed:
     - name: /etc/circus.d/webproject_gunicorn.ini
