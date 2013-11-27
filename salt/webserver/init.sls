@@ -100,18 +100,6 @@ webproject_project:
     - require:
       - virtualenv: {{ pillar['files']['env_dir'] }}
 
-# This one is primarily so that people don't have to think about this
-# when setting a server up.
-webproject_syncdb:
-  cmd.wait:
-    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py syncdb --noinput
-    - cwd: {{ pillar['files']['webproject_dir'] }}
-    - user: webproject
-    - group: webproject
-    - watch:
-      - file: webproject_project
-      - virtualenv: webproject_env
-
 webproject_gunicorn_circus:
   file.managed:
     - name: /etc/circus.d/webproject_gunicorn.ini
@@ -126,6 +114,28 @@ webproject_gunicorn_circus:
       - service: circusd
   cmd.wait:
     - name: circusctl restart gunicorn_webproject
+    - watch:
+      - file: webproject_project
+      - virtualenv: webproject_env
+
+# These ones are primarily so that people don't have to think about this
+# when setting a server up.
+webproject_syncdb:
+  cmd.wait:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py syncdb --noinput
+    - cwd: {{ pillar['files']['webproject_dir'] }}
+    - user: webproject
+    - group: webproject
+    - watch:
+      - file: webproject_project
+      - virtualenv: webproject_env
+
+webproject_collectstatic:
+  cmd.wait:
+    - name: {{ pillar['files']['env_dir'] }}bin/python manage.py collectstatic --noinput
+    - cwd: {{ pillar['files']['webproject_dir'] }}
+    - user: webproject
+    - group: webproject
     - watch:
       - file: webproject_project
       - virtualenv: webproject_env
