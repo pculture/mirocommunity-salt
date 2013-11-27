@@ -1,7 +1,6 @@
-# Some base settings shared by all projects.
+DEBUG = {% if pillar['settings']['debug'] %}True{% else %}False{% endif %}
+TEMPLATE_DEBUG = DEBUG
 
-# We actually share this among all our sites, but we don't currently have
-# a good way of making it per-site unique.
 SECRET_KEY = "{{ pillar['settings']['secret_key'] }}"
 
 ADMINS = (

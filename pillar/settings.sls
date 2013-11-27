@@ -40,5 +40,5 @@ settings:
   cache:
     backend: django.core.cache.backends.memcached.MemcachedCache
     location: 127.0.0.1:11211
-  debug: False
+  debug: false
   time_zone: UTC
