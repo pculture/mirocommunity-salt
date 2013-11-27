@@ -156,7 +156,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     "localtv.context_processors.localtv",
     "localtv.context_processors.browse_modules",
-    "mirocommunity_saas.context_processors.tier_info",
 )
 AUTH_PROFILE_MODULE = 'user_profile.Profile'
 
@@ -172,7 +171,6 @@ COMMENTS_APP = 'localtv.comments'
 
 
 # Compressor settings
-COMPRESS_STORAGE = 'mirocommunity_saas.storages.CompressedBotoStorage'
 COMPRESS_ENABLED = False
 
 
