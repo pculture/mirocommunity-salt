@@ -111,6 +111,7 @@ MIDDLEWARE_CLASSES = (
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 ROOT_URLCONF = 'localtv.urls'
+WSGI_APPLICATION = "webproject.wsgi.application"
 
 INSTALLED_APPS = (
     'django.contrib.auth',
