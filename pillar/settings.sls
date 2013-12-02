@@ -40,5 +40,7 @@ settings:
   cache:
     backend: django.core.cache.backends.memcached.MemcachedCache
     location: 127.0.0.1:11211
+  email_host: localhost
+  email_port: 25
   debug: false
   time_zone: UTC

@@ -19,8 +19,8 @@ USE_L10N = True
 MEDIA_URL = '/media/'
 
 DEFAULT_FROM_EMAIL = SERVER_EMAIL = "{{ pillar['settings']['server_email'] }}"
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 25
+EMAIL_HOST = "{{ pillar['settings']['email_host'] }}"
+EMAIL_PORT = {{ pillar['settings']['email_port'] }}
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 

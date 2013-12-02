@@ -1,3 +1,4 @@
 base:
   '*':
-    - webserver
+    - project
+    - mail
