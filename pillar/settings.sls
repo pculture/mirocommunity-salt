@@ -42,7 +42,7 @@ settings:
     haystack_queue: haystack
     broker_url: amqp://guest:guest@localhost:5672//
   cache:
-    backend: django.core.cache.backends.memcached.MemcachedCache
+    backend: django.core.cache.backends.memcached.PyLibMCCache
     location: 127.0.0.1:11211
   email_host: localhost
   email_port: 25

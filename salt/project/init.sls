@@ -13,6 +13,7 @@ app-pkgs:
       - subversion
       - libxml2-dev
       - libxslt1-dev
+      - libmemcached-dev
 
 virtualenv:
   pkg.purged:

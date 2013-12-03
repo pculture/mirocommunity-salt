@@ -4,3 +4,4 @@ base:
     - mail
     - search
     - queue
+    - cache
