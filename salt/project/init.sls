@@ -42,11 +42,12 @@ webproject_env:
   virtualenv.manage:
     - name: {{ pillar['files']['env_dir'] }}
     - requirements: salt://project/requirements.txt
-    - clear: false
+    - user: webproject
     - require:
       - pkg: app-pkgs
       - pip: virtualenv
       - file: webproject_dirs
+      - user: webproject_user
 
 gunicorn_log:
   file.managed:
