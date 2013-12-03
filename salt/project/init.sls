@@ -43,6 +43,7 @@ webproject_env:
     - name: {{ pillar['files']['env_dir'] }}
     - requirements: salt://project/requirements.txt
     - user: webproject
+    - no_deps: true
     - require:
       - pkg: app-pkgs
       - pip: virtualenv

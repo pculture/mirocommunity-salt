@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :salt do |salt|
 
     salt.install_type = "git"
-    salt.install_args = "2fecfab8786ac34e3932152d38fb0f729047d0e6"
+    salt.install_args = "6aa1416c3663aa9325a358d27bf8472f52e9bee1"
     salt.minion_config = "salt.conf"
     salt.run_highstate = true
 
