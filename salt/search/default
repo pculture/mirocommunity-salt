@@ -1,0 +1,46 @@
+# Source: https://github.com/ConsumerAffairs/salt-states
+# Commit: 5b0246d2d85548a2938a36258615dfcf4a2f9804
+
+# Run ElasticSearch as this user ID and group ID
+#ES_USER=elasticsearch
+#ES_GROUP=elasticsearch
+
+# Heap Size (defaults to 256m min, 1g max)
+{%- set heap_size = pillar.get('elasticsearch', {}).get('heap_size') %}
+{%- if heap_size %}
+ES_HEAP_SIZE={{heap_size}}
+{%- else %}
+#ES_HEAP_SIZE=2g
+{%- endif %}
+
+# Heap new generation
+#ES_HEAP_NEWSIZE=
+
+# max direct memory
+#ES_DIRECT_SIZE=
+
+# Maximum number of open files, defaults to 65535.
+#MAX_OPEN_FILES=65535
+
+# Maximum locked memory size. Set to "unlimited" if you use the
+# bootstrap.mlockall option in elasticsearch.yml. You must also set
+# ES_HEAP_SIZE.
+#MAX_LOCKED_MEMORY=unlimited
+
+# ElasticSearch log directory
+#LOG_DIR=/var/log/elasticsearch
+
+# ElasticSearch data directory
+#DATA_DIR=/var/lib/elasticsearch
+
+# ElasticSearch work directory
+#WORK_DIR=/tmp/elasticsearch
+
+# ElasticSearch configuration directory
+#CONF_DIR=/etc/elasticsearch
+
+# ElasticSearch configuration file (elasticsearch.yml)
+#CONF_FILE=/etc/elasticsearch/elasticsearch.yml
+
+# Additional Java OPTS
+#ES_JAVA_OPTS=

@@ -2,3 +2,4 @@ base:
   '*':
     - project
     - mail
+    - search
