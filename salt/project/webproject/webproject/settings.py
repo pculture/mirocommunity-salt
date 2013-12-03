@@ -223,18 +223,18 @@ UPLOADTEMPLATE_PROTECTED_STATIC_FILES = (
 
 import djcelery
 djcelery.setup_loader()
-BROKER_URL = 'amqp://localtv:localtv@localhost:5672/localtv'
+BROKER_URL = "{{ pillar['settings']['celery']['broker_url'] }}"
 CELERY_BACKEND = 'cache'
 CELERY_SEND_TASK_ERROR_EMAILS = False
 from kombu import Exchange, Queue
-CELERY_DEFAULT_QUEUE = 'default_1_10'
+CELERY_DEFAULT_QUEUE = "{{ pillar['settings']['celery']['default_queue'] }}"
 CELERY_QUEUES = (
     Queue(CELERY_DEFAULT_QUEUE, Exchange(CELERY_DEFAULT_QUEUE), routing_key=CELERY_DEFAULT_QUEUE),
 )
 CELERY_ROUTES = {
-    'localtv.tasks.haystack_update': {'queue': 'haystack_1_10'},
-    'localtv.tasks.haystack_remove': {'queue': 'haystack_1_10'},
-    'localtv.tasks.haystack_batch_update': {'queue': 'haystack_1_10'},
+    'localtv.tasks.haystack_update': {'queue': "{{ pillar['settings']['celery']['haystack_queue'] }}"},
+    'localtv.tasks.haystack_remove': {'queue': "{{ pillar['settings']['celery']['haystack_queue'] }}"},
+    'localtv.tasks.haystack_batch_update': {'queue': "{{ pillar['settings']['celery']['haystack_queue'] }}"},
 }
 
 # Should let us use the normal logging set up in LOGGING for celery as well.

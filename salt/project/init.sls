@@ -77,9 +77,9 @@ webproject_project:
     - require:
       - virtualenv: {{ pillar['files']['env_dir'] }}
 
-webproject_gunicorn_circus:
+gunicorn_circus:
   file.managed:
-    - name: /etc/circus.d/webproject_gunicorn.ini
+    - name: /etc/circus.d/gunicorn.ini
     - source: salt://project/gunicorn.ini
     - makedirs: True
     - template: jinja
@@ -90,8 +90,45 @@ webproject_gunicorn_circus:
     - watch_in:
       - service: circusd
   cmd.wait:
-    - name: circusctl restart gunicorn_webproject
+    - name: circusctl restart gunicorn
     - watch:
+      - file: gunicorn_circus
+      - file: webproject_project
+      - virtualenv: webproject_env
+
+celery_default_circus:
+  file.managed:
+    - name: /etc/circus.d/celery_default.ini
+    - source: salt://project/celery_default.ini
+    - makedirs: True
+    - template: jinja
+    - require:
+      - file: webproject_dirs
+      - user: webproject_user
+    - watch_in:
+      - service: circusd
+  cmd.wait:
+    - name: circusctl restart celery_default
+    - watch:
+      - file: celery_default_circus
+      - file: webproject_project
+      - virtualenv: webproject_env
+
+celery_haystack_circus:
+  file.managed:
+    - name: /etc/circus.d/celery_haystack.ini
+    - source: salt://project/celery_haystack.ini
+    - makedirs: True
+    - template: jinja
+    - require:
+      - file: webproject_dirs
+      - user: webproject_user
+    - watch_in:
+      - service: circusd
+  cmd.wait:
+    - name: circusctl restart celery_haystack
+    - watch:
+      - file: celery_haystack_circus
       - file: webproject_project
       - virtualenv: webproject_env
 

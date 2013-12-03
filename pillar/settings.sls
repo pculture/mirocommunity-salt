@@ -37,6 +37,10 @@ settings:
     engine: haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine
     url: http://127.0.0.1:9200/
     index_name: haystack
+  celery:
+    default_queue: default
+    haystack_queue: haystack
+    broker_url: amqp://guest:guest@localhost:5672//
   cache:
     backend: django.core.cache.backends.memcached.MemcachedCache
     location: 127.0.0.1:11211
