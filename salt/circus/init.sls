@@ -15,16 +15,19 @@ python-pip:
       - pkg: python-pip
       - pkg: easy_install
 
-cpp_support:
+pyzmq_pkgs:
   pkg.installed:
-    - name: g++
+    - names:
+      - g++
+      - libzmq3-dev
+      - python-dev
 
 pyzmq:
   pip.installed:
     - name: pyzmq==13.1.0
     - require:
       - cmd: python-pip
-      - pkg: cpp_support
+      - pkg: pyzmq_pkgs
 
 circus:
   pip.installed:

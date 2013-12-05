@@ -94,6 +94,8 @@ gunicorn_circus:
       - service: circusd
   cmd.wait:
     - name: circusctl restart gunicorn
+    - require:
+      - service: circusd
     - watch:
       - file: gunicorn_circus
       - file: webproject_project
@@ -112,6 +114,8 @@ celery_default_circus:
       - service: circusd
   cmd.wait:
     - name: circusctl restart celery_default
+    - require:
+      - service: circusd
     - watch:
       - file: celery_default_circus
       - file: webproject_project
@@ -130,6 +134,8 @@ celery_haystack_circus:
       - service: circusd
   cmd.wait:
     - name: circusctl restart celery_haystack
+    - require:
+      - service: circusd
     - watch:
       - file: celery_haystack_circus
       - file: webproject_project

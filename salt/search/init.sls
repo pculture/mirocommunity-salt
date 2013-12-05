@@ -14,9 +14,11 @@ elasticsearch:
     - enable: True
     - require:
       - pkg: elasticsearch
+      - file: /usr/share/elasticsearch/data
     - watch:
-      - file: /etc/elasticsearch/elasticsearch.yml
       - file: /etc/default/elasticsearch
+      - file: /etc/elasticsearch/elasticsearch.yml
+      - file: /etc/elasticsearch/logging.yml
 
 /etc/default/elasticsearch:
   file.managed:
